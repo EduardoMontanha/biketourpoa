@@ -122,8 +122,16 @@
         display: inline-block;
     }
 
+    #navigation .nav-item a {
+        padding: 0.5rem 1rem;
+    }
+
     #navigation .nav-item a:hover {
         text-decoration: underline;
+    }
+
+    #navigation .nav-item.special {
+        margin-left: 2rem;
     }
 
     #navigation .nav-item.special a {
