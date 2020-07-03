@@ -7,8 +7,8 @@ import {
 
 import Header from './routes/components/Header';
 import Footer from './routes/components/Footer';
-import Landing from './routes/Landing/Landing';
-import { Error404 } from './routes/Responses/Responses';
+import Landing from './routes/Landing';
+import { Error404 } from './routes/Responses';
 
 
 function App() {
