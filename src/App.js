@@ -5,16 +5,16 @@ import {
     Route
 } from 'react-router-dom';
 
-import Header from './routes/components/Header';
 import Footer from './routes/components/Footer';
 import Landing from './routes/Landing';
 import { Error404 } from './routes/Responses';
+import Navigation from './routes/components/Navigation';
 
 
 function App() {
     return (
         <BrowserRouter>
-            <Header />
+            <Navigation />
 
             <Switch>
                 <Route exact path="/" component={Landing} />
