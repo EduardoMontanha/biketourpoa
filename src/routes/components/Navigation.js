@@ -24,7 +24,7 @@ class Navigation extends React.Component {
         return(
             <nav id="navigation">
                 <div className="container">
-                    <Link to="/" id="logo"><img src={logo} alt="Logo"/></Link>
+                    <Link to="/" id="logo"><img src={logo} alt="Logo Bike Tour Poa"/></Link>
 
                     <button className="nav-bar-toggler" onClick={openMenu}>
                         <div id="burger-icon">
