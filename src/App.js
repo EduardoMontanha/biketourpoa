@@ -8,6 +8,7 @@ import {
 import Header from './routes/components/Header';
 import Footer from './routes/components/Footer';
 import Landing from './routes/Landing/Landing';
+import { Error404 } from './routes/Responses/Responses';
 
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
             <Header />
 
             <Switch>
-                <Route path="/" component={Landing} />
+                <Route exact path="/" component={Landing} />
+                <Route path="" component={Error404} />
             </Switch>
 
             <Footer />
