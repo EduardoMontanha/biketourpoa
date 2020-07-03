@@ -3,7 +3,7 @@ import React from 'react';
 function Landing() {
     return(
         <div id="landing">
-            test
+            <div className="container"></div>
         </div>
     );
 }
