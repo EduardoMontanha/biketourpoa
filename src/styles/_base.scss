@@ -5,4 +5,34 @@ $c1: #EFEF16;
 $c2: #EB1265;
 $c3: #209052;
 $c4: #E8E9EB;
-$C5: #313638;
+$c5: #313638;
+
+
+/* ####################### */
+/* Fonts */
+/* ####################### */
+$font1: Yellowtail, cursive;
+$font2: Montserrat, sans-serif;
+$font22: MontserratBold, sans-serif;
+
+
+/* ####################### */
+/* Common Styles */
+/* ####################### */
+header, nav, main, aside, footer {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    // background-color: blue;
+}
+
+.hide {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+}
