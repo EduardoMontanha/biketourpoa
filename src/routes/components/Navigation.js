@@ -36,22 +36,22 @@ function Navigation () {
                 <div className="nav-links">
                     <ul>
                         <li className="nav-item">
-                            <Link to="/">Home</Link>
+                            <Link to="/" onClick={openMenu}>Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/roteiros">Roteiros</Link>
+                            <Link to="/roteiros" onClick={openMenu}>Roteiros</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/clube">VIPs</Link>
+                            <Link to="/clube" onClick={openMenu}>VIPs</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/sobre">Sobre</Link>
+                            <Link to="/sobre" onClick={openMenu}>Sobre</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/contato">Contato</Link>
+                            <Link to="/contato" onClick={openMenu}>Contato</Link>
                         </li>
                         <li className="nav-item special">
-                            <a href="#" target="_blank">Pop Tour</a>
+                            <a href="#" target="_blank" onClick={openMenu}>Pop Tour</a>
                         </li>
                     </ul>
                 </div>
