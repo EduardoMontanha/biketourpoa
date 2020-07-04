@@ -51,7 +51,7 @@ function Navigation () {
                             <Link to="/contato" onClick={openMenu}>Contato</Link>
                         </li>
                         <li className="nav-item special">
-                            <a href="#" target="_blank" onClick={openMenu}>Pop Tour</a>
+                            <a href="https://www.poptour.top/" target="_blank" onClick={openMenu}>Pop Tour</a>
                         </li>
                     </ul>
                 </div>
