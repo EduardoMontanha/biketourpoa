@@ -19,6 +19,10 @@ $font22: MontserratBold, sans-serif;
 /* ####################### */
 /* Common Styles */
 /* ####################### */
+body {
+    background-color: $c4;
+}
+
 header, nav, main, aside, footer {
     box-sizing: border-box;
 }
@@ -26,7 +30,6 @@ header, nav, main, aside, footer {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    // background-color: blue;
 }
 
 .hide {
