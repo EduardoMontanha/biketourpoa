@@ -22,10 +22,10 @@ function App() {
 
             <Switch>
                 <Route exact path="/" component={Landing} />
-                <Route exact path="/roteiros" component={UnderConstruction} />
-                <Route exact path="/clube" component={UnderConstruction} />
-                <Route exact path="/sobre" component={UnderConstruction} />
-                <Route exact path="/contato" component={UnderConstruction} />
+                <Route path="/roteiros" component={UnderConstruction} />
+                <Route path="/clube" component={UnderConstruction} />
+                <Route path="/sobre" component={UnderConstruction} />
+                <Route path="/contato" component={UnderConstruction} />
                 <Route path="" component={Error404} />
             </Switch>
 
