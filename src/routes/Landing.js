@@ -1,10 +1,13 @@
 import React from 'react';
+import Banner from './components/Banner';
 
 function Landing() {
     return(
-        <div id="landing">
-            <div className="container"></div>
-        </div>
+        <main id="landing">
+            <div className="container">
+                <Banner />
+            </div>
+        </main>
     );
 }
 
