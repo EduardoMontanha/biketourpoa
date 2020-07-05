@@ -21,11 +21,11 @@ function Banner () {
     return(
         <section id="banner">
             <Swiper {...params}>
-                <div className="slide">
+                <div>
                     <Link to=""><img src={slide1} alt="Inclusão" /></Link>
                 </div>
 
-                <div className="slide">
+                <div>
                     <Link to="/clube"><img src={slide2} alt="Inclusão" /></Link>
                 </div>
             </Swiper>
