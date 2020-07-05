@@ -15,14 +15,18 @@ function Banner () {
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
-        }
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets'
+        },
     }
 
     return(
         <section id="banner">
             <Swiper {...params}>
                 <div>
-                    <Link to=""><img src={slide1} alt="Inclusão" /></Link>
+                    <Link to="/inclusao"><img src={slide1} alt="Inclusão" /></Link>
                 </div>
 
                 <div>
