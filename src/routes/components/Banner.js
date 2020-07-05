@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Swiper from 'react-id-swiper';
-import 'swiper/swiper.scss';
+import 'swiper/css/swiper.css';
 
 import slide1 from '../../images/banner/slide1.png';
 import slide2 from '../../images/banner/slide2.png';
@@ -9,7 +9,7 @@ import slide2 from '../../images/banner/slide2.png';
 function Banner () {
     const params = {
         autoplay: {
-            delay: 2000,
+            delay: 5000
         },
         loop: true,
         navigation: {
