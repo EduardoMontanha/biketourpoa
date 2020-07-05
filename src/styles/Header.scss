@@ -1,4 +1,4 @@
-#navigation {
+#header {
     position: fixed;
     z-index: 10;
     width: 100vw;
@@ -31,7 +31,7 @@
 /* ===================== */
 /* Burger Button */
 /* ===================== */
-#navigation .nav-bar-toggler {
+#header .nav-bar-toggler {
     width: 60px;
     height: 40px;
     border: none;
@@ -39,16 +39,16 @@
     cursor: pointer;
 }
 
-#navigation .nav-bar-toggler:focus {
+#header .nav-bar-toggler:focus {
     outline: none;
 }
 
-#navigation #burger-icon {
+#header #burger-icon {
     display: inline-block;
     cursor: pointer;
 }
 
-#navigation #burger-icon .bar {
+#header #burger-icon .bar {
     width: 35px;
     height: 4px;
     background-color: $c2;
@@ -56,28 +56,28 @@
     transition: 0.4s;
 }
 
-#navigation.active #burger-icon {
+#header.active #burger-icon {
     padding-left: 4px;
 }
 
 /* Rotate first bar */
-#navigation.active #burger-icon .bar1 {
+#header.active #burger-icon .bar1 {
     transform: rotate(-45deg) translate(-9px, 6px) ;
 }
 /* Fade out the second bar */
-#navigation.active #burger-icon .bar2 {
+#header.active #burger-icon .bar2 {
     opacity: 0;
 }
 /* Rotate last bar */
-#navigation.active #burger-icon .bar3 {
+#header.active #burger-icon .bar3 {
     transform: rotate(45deg) translate(-8px, -6px) ;
 }
 
 
 /* ========================================== */
-/* Navigation Links */
+/* header Links */
 /* ========================================== */
-#navigation .nav-links {
+#header .nav-links {
     display: none;
     position: absolute;
     top: 90px;
@@ -88,7 +88,7 @@
     z-index: 100;
 }
 
-#navigation .nav-item a {
+#header .nav-item a {
     padding: 1rem;
     display: block;
     font-family: $font2;
@@ -97,7 +97,7 @@
     color: $c2;
 }
 
-#navigation .nav-item.special a {
+#header .nav-item.special a {
     background-color: $c2;
     color: $c1;
 }
@@ -107,11 +107,11 @@
 /* Large Screens */
 /* ========================================== */
 @media screen and (min-width: 1024px) {
-    #navigation .nav-bar-toggler {
+    #header .nav-bar-toggler {
         display: none;
     }
 
-    #navigation .nav-links {
+    #header .nav-links {
         width: auto;
         position: relative;
         top: 0;
@@ -119,23 +119,23 @@
         box-shadow: none;
     }
 
-    #navigation .nav-item {
+    #header .nav-item {
         display: inline-block;
     }
 
-    #navigation .nav-item a {
+    #header .nav-item a {
         padding: 0.5rem 1rem;
     }
 
-    #navigation .nav-item a:hover {
+    #header .nav-item a:hover {
         text-decoration: underline;
     }
 
-    #navigation .nav-item.special {
+    #header .nav-item.special {
         margin-left: 2rem;
     }
 
-    #navigation .nav-item.special a {
+    #header .nav-item.special a {
         border-radius: 6px;
     }
 }

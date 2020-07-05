@@ -12,13 +12,13 @@ import {
     Error404,
 }
 from './routes/Responses';
-import Navigation from './routes/components/Navigation';
+import Header from './routes/components/Header';
 
 
 function App() {
     return (
         <BrowserRouter>
-            <Navigation />
+            <Header />
 
             <Switch>
                 <Route exact path="/" component={Landing} />
