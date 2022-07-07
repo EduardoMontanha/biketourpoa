@@ -5,4 +5,12 @@ export default createGlobalStyle`
     :root {
         
     }
+
+    body {
+
+    }
+
+    .hide {
+        display: none !important;
+    }
 `;
