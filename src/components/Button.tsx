@@ -1,9 +1,13 @@
-import React from 'react';
 import styled from 'styled-components';
 
+const ButtonStyle = styled.button`
+
+`;
+
 const Button = () => {
+    
     return (
-        <button></button>
+        <ButtonStyle></ButtonStyle>
     );
 }
 
