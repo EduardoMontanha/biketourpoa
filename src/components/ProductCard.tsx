@@ -31,6 +31,10 @@ const Tags = styled.div`
     align-items: center;
     justify-content: flex-start;
 
+    &.no-tag {
+        margin-bottom: 25.5px;
+    }
+
     .tag {
         padding: 0.2rem 0.4rem;
         border-radius 4px;
@@ -39,6 +43,10 @@ const Tags = styled.div`
         color: #FFFFFF;
         opacity: 0.8;
         vertical-align: middle;
+    }
+
+    .comingSoon {
+        background-color: #FFCC00;
     }
 
     .lastUnits {
@@ -63,6 +71,9 @@ interface Props {
 }
 
 const ProductCard = ({ product }: Props) => {
+    const [date, setDate] = useState("");
+    const [hasDate, setHasDate] = useState(false);
+    const [hasTags, setHasTags] = useState(false);
     const [imageSrc, setImageSrc] = useState("");
     const [isLastUnits, setIsLastUnits] = useState(false);
     const [isNew, setIsNew] = useState(false);
@@ -84,29 +95,39 @@ const ProductCard = ({ product }: Props) => {
     }
 
     const verifyTags = () => {
-        const currentPrice = product.currentPrice;
+        let containTags = false;
+        const sale = product.salePrice;
         const quantity = product.quantity;
 
-        if (!!currentPrice && (currentPrice < product.fullPrice)) {
+        if (!!product.date) {
+
+            setHasDate(true);
+        }
+
+        if (!!sale && (sale < product.fullPrice)) {
             setIsOffer(true);
-            setOffer(`R$${currentPrice}`);
+            setOffer(`R$${sale}`);
+            containTags = true;
         }
 
         if (quantity < 10 && quantity > 0) {
             setIsLastUnits(true);
+            containTags = true;
         } else if (quantity === 0) {
             setIsSoldOut(true);
+            containTags = true;
         }
 
         // Verify if the creation of the product has more than a month
         const diffInMs = new Date().getTime() - new Date(product.creationDate).getTime();
         const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
 
-        console.log(diffInDays);
-
         if (diffInDays < 31) {
             setIsNew(true);
+            containTags = true;
         }
+
+        setHasTags(containTags);
     }
 
     useEffect(() => {
@@ -114,6 +135,8 @@ const ProductCard = ({ product }: Props) => {
         verifyTags();
 
         setTitle(product.title);
+
+        console.log("test")
     }, []);
 
     return (
@@ -122,11 +145,12 @@ const ProductCard = ({ product }: Props) => {
                 <img src={imageSrc} alt={`Imagem do evento ${title}`} />
             </Image>
 
-            <Tags>
+            <Tags className={hasTags ? "" : "no-tag"}>
                 <div className={`tag new ${isNew ? "" : "hide"}`}>novo</div>
-                <div className={`tag offer ${isOffer ? "" : "hide"}`}>promoção</div>
-                <div className={`tag lastUnits ${isLastUnits ? "" : "hide"}`}>últimos lugares</div>
-                <div className={`tag soldOut ${isSoldOut ? "" : "hide"}`}>esgotado</div>
+                <div className={`tag comingSoon ${hasDate ? "hide" : ""}`}>em breve</div>
+                <div className={`tag offer ${isOffer && hasDate ? "" : "hide"}`}>promoção</div>
+                <div className={`tag lastUnits ${isLastUnits && hasDate ? "" : "hide"}`}>últimos lugares</div>
+                <div className={`tag soldOut ${isSoldOut && hasDate ? "" : "hide"}`}>lista de espera</div>
             </Tags>
 
             <h3>{title}</h3>
