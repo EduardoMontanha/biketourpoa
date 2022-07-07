@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Button from './Button';
 import { ProductDetails } from "../interfaces/Product";
@@ -141,21 +142,23 @@ const ProductCard = ({ product }: Props) => {
 
     return (
         <Card>
-            <Image>
-                <img src={imageSrc} alt={`Imagem do evento ${title}`} />
-            </Image>
+            <Link to={`/roteiro/${product.id}`}>
+                <Image>
+                    <img src={imageSrc} alt={`Imagem do evento ${title}`} />
+                </Image>
 
-            <Tags className={hasTags ? "" : "no-tag"}>
-                <div className={`tag new ${isNew ? "" : "hide"}`}>novo</div>
-                <div className={`tag comingSoon ${hasDate ? "hide" : ""}`}>em breve</div>
-                <div className={`tag offer ${isOffer && hasDate ? "" : "hide"}`}>promoção</div>
-                <div className={`tag lastUnits ${isLastUnits && hasDate ? "" : "hide"}`}>últimos lugares</div>
-                <div className={`tag soldOut ${isSoldOut && hasDate ? "" : "hide"}`}>lista de espera</div>
-            </Tags>
+                <Tags className={hasTags ? "" : "no-tag"}>
+                    <div className={`tag new ${isNew ? "" : "hide"}`}>novo</div>
+                    <div className={`tag comingSoon ${hasDate ? "hide" : ""}`}>em breve</div>
+                    <div className={`tag offer ${isOffer && hasDate ? "" : "hide"}`}>promoção</div>
+                    <div className={`tag lastUnits ${isLastUnits && hasDate ? "" : "hide"}`}>últimos lugares</div>
+                    <div className={`tag soldOut ${isSoldOut && hasDate ? "" : "hide"}`}>lista de espera</div>
+                </Tags>
 
-            <h3>{title}</h3>
+                <h3>{title}</h3>
 
-            <Button />
+                <Button />
+            </Link>
         </Card>
     );
 };
