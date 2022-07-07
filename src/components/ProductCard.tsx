@@ -27,7 +27,7 @@ const Tags = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
     .tag {
         padding: 0.2rem 0.4rem;
@@ -61,13 +61,55 @@ interface Props {
 }
 
 const ProductCard = ({ product }: Props) => {
-    const [title, setTitle] = useState("");
     const [imageSrc, setImageSrc] = useState("");
-    const [offer, setOffer] = useState("10");
+    const [isLastUnits, setIsLastUnits] = useState(false);
+    const [isNew, setIsNew] = useState(false);
+    const [isOffer, setIsOffer] = useState(false);
+    const [isSoldOut, setIsSoldOut] = useState(false);
+    const [offer, setOffer] = useState("R$0,00");
+    const [title, setTitle] = useState("Carregando...");
+    
+    const verifyImage = () => {
+        let prodImage = "";
+
+        if (product.imageSrc) {
+            prodImage = product.imageSrc;
+        } else {
+            // colocar imagem genérica aqui
+        }
+
+        setImageSrc(prodImage);
+    }
+
+    const verifyTags = () => {
+        const currentPrice = product.currentPrice;
+        const quantity = product.quantity;
+
+        if (!!currentPrice && (currentPrice < product.fullPrice)) {
+            setIsOffer(true);
+            setOffer(`R$${currentPrice}`);
+        }
+
+        if (quantity < 10 && quantity > 0) {
+            setIsLastUnits(true);
+        } else if (quantity === 0) {
+            setIsSoldOut(true);
+        }
+
+        // Verify if the creation of the product has more than a month
+        const diffInMs = new Date().getTime() - new Date(product.creationDate).getTime();
+        const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+
+        if (diffInDays > 31) {
+            setIsNew(true);
+        }
+    }
 
     useEffect(() => {
+        verifyImage();
+        verifyTags();
+
         setTitle(product.title);
-        setImageSrc(product.imageSrc);
     }, []);
 
     return (
@@ -77,10 +119,10 @@ const ProductCard = ({ product }: Props) => {
             </Image>
 
             <Tags>
-                <div className="tag lastUnits">últimos lugares</div>
-                <div className="tag new">novo</div>
-                <div className="tag offer">promoção</div>
-                <div className="tag soldOut">esgotado</div>
+                <div className={`tag new ${isNew ? "" : "hide"}`}>novo</div>
+                <div className={`tag offer ${isOffer ? "" : "hide"}`}>promoção</div>
+                <div className={`tag lastUnits ${isLastUnits ? "" : "hide"}`}>últimos lugares</div>
+                <div className={`tag soldOut ${isSoldOut ? "" : "hide"}`}>esgotado</div>
             </Tags>
 
             <h3>{title}</h3>
