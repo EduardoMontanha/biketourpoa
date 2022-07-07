@@ -4,9 +4,11 @@ import { ProductDetails } from "../interfaces/Product";
 const Home = () => {
 
     const product: ProductDetails = {
+        creationDate: "05/17/2022",
         title: "teste",
         imageSrc: "https://static.wixstatic.com/media/a405a9_f50cc3728e244c5c8447c3c10c182700~mv2.png/v1/fill/w_309,h_309,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/card-home.png",
-        price: 0,
+        currentPrice: 0,
+        quantity: 9,
         fullPrice: 0
     }
 
