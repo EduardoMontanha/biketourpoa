@@ -20,6 +20,8 @@ const Image = styled.div`
     & img {
         max-width: 100%;
         max-height: 100%;
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
     }
 `;
 
@@ -100,8 +102,13 @@ const ProductCard = ({ product }: Props) => {
         const diffInMs = new Date().getTime() - new Date(product.creationDate).getTime();
         const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
 
+        console.log(diffInDays);
+
         if (diffInDays > 31) {
+            console.log("entrou")
             setIsNew(true);
+        } else {
+            console.error("não deu", diffInDays);
         }
     }
 
