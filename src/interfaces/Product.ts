@@ -1,9 +1,12 @@
 export interface ProductDetails {
     creationDate: string,
-    currentPrice?: number,
+    date?: string,
     description?: string,
     fullPrice: number,
+    id: number,
     imageSrc?: string,
+    nextDates?: string[],
     quantity: number,
+    salePrice?: number,
     title: string
 }
