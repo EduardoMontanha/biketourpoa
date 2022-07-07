@@ -104,11 +104,8 @@ const ProductCard = ({ product }: Props) => {
 
         console.log(diffInDays);
 
-        if (diffInDays > 31) {
-            console.log("entrou")
+        if (diffInDays < 31) {
             setIsNew(true);
-        } else {
-            console.error("não deu", diffInDays);
         }
     }
 

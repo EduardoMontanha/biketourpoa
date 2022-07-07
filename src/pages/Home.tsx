@@ -4,7 +4,7 @@ import { ProductDetails } from "../interfaces/Product";
 const Home = () => {
 
     const product: ProductDetails = {
-        creationDate: "06/29/2022",
+        creationDate: "2022-06-20T12:01:04.753Z",
         title: "teste",
         imageSrc: "https://static.wixstatic.com/media/a405a9_f50cc3728e244c5c8447c3c10c182700~mv2.png/v1/fill/w_309,h_309,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/card-home.png",
         currentPrice: 0,
