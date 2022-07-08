@@ -161,6 +161,6 @@ const ProductCard = ({ product }: Props) => {
             </Link>
         </Card>
     );
-};
+}
 
 export default ProductCard;
