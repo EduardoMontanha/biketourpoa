@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { cssVar, lighten } from 'polished';
 
 interface ButtonProps {
     full?: boolean,
@@ -16,10 +17,14 @@ const ButtonStyle = styled.button<ButtonProps>`
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 4px;
-    background-color: ${props => props.primary ? "red" : "blue"};
+    background-color: ${props => props.primary ? "var(--pink)" : "var(--green)"};
     color: #FFFFFF;
     font-weight: bold;
     cursor: pointer;
+
+    &:hover {
+        background-color: ${props => props.primary ? lighten(0.1, `${cssVar("--pink", "#FFFFFF")}`) : lighten(0.1, `${cssVar("--green", "#FFFFFF")}`)};
+    }
 `;
 
 const Button = ({ full, label, primary }: ComponentProps) => {
