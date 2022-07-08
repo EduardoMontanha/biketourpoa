@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Button from './Button';
 import { ProductDetails } from "../interfaces/Product";
+import locationIcon from '../assets/icons/location.svg';
 
 interface Props {
     product: ProductDetails
@@ -151,6 +152,8 @@ const ProductCard = ({ product }: Props) => {
                     <div className={`tag lastUnits ${isLastUnits && hasDate ? "" : "hide"}`}>últimos lugares</div>
                     <div className={`tag soldOut ${isSoldOut && hasDate ? "" : "hide"}`}>lista de espera</div>
                 </Tags>
+
+                <img src={locationIcon} alt="Ícone de local" />
 
                 <h3>{title}</h3>
                 
