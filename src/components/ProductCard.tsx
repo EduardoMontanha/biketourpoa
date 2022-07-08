@@ -4,6 +4,10 @@ import styled from "styled-components";
 import Button from './Button';
 import { ProductDetails } from "../interfaces/Product";
 
+interface Props {
+    product: ProductDetails
+}
+
 const Card = styled.div`
     width: 100%;
     height: 100%;
@@ -24,6 +28,10 @@ const Image = styled.div`
         border-top-right-radius: 8px;
         border-top-left-radius: 8px;
     }
+`;
+
+const Price = styled.div`
+
 `;
 
 const Tags = styled.div`
@@ -49,27 +57,19 @@ const Tags = styled.div`
     .comingSoon {
         background-color: #FFCC00;
     }
-
     .lastUnits {
         background-color: #FF9900;
     }
-
     .new {
         background-color: #0066FF;
     }
-
     .offer {
         background-color: #CC00CC;
     }
-
     .soldOut {
         background-color: #CC0000;
     }
 `;
-
-interface Props {
-    product: ProductDetails
-}
 
 const ProductCard = ({ product }: Props) => {
     const [date, setDate] = useState("");
@@ -80,7 +80,8 @@ const ProductCard = ({ product }: Props) => {
     const [isNew, setIsNew] = useState(false);
     const [isOffer, setIsOffer] = useState(false);
     const [isSoldOut, setIsSoldOut] = useState(false);
-    const [offer, setOffer] = useState("R$0,00");
+    const [price, setPrice] = useState("R$0,00");
+    const [sale, setSale] = useState("");
     const [title, setTitle] = useState("Carregando...");
     
     const verifyImage = () => {
@@ -107,7 +108,7 @@ const ProductCard = ({ product }: Props) => {
 
         if (!!sale && (sale < product.fullPrice)) {
             setIsOffer(true);
-            setOffer(`R$${sale}`);
+            setSale(`R$${sale}`);
             containTags = true;
         }
 
@@ -136,8 +137,6 @@ const ProductCard = ({ product }: Props) => {
         verifyTags();
 
         setTitle(product.title);
-
-        console.log("test")
     }, []);
 
     return (
@@ -156,8 +155,13 @@ const ProductCard = ({ product }: Props) => {
                 </Tags>
 
                 <h3>{title}</h3>
+                
+                <Price>
+                    <div className={`sale ${!!sale ? "" : "hide"}`}>{sale}</div>
+                    <div className="price">{price}</div>
+                </Price>
 
-                <Button />
+                <Button primary full label="Saber Mais" />
             </Link>
         </Card>
     );
