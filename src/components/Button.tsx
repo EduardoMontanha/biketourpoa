@@ -23,7 +23,7 @@ const ButtonStyle = styled.button<ButtonProps>`
     cursor: pointer;
 
     &:hover {
-        background-color: ${props => props.primary ? lighten(0.1, `${cssVar("--pink", "#FFFFFF")}`) : lighten(0.1, `${cssVar("--green", "#FFFFFF")}`)};
+        background-color: ${props => props.primary ? lighten(0.05, `${cssVar("--pink", "#FFFFFF")}`) : lighten(0.05, `${cssVar("--green", "#FFFFFF")}`)};
     }
 `;
 
