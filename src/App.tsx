@@ -1,7 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 import Providers from "./Providers";
 import GlobalStyles from './styles/global';
-import Routes from "./Routes";
+import Router from "./Router";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -11,7 +11,7 @@ const App = () => {
             <Providers>
                 <GlobalStyles />
                 <Header />
-                <Routes />
+                <Router />
                 <Footer />
             </Providers>
         </BrowserRouter>
