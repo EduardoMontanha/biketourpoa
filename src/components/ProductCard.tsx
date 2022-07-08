@@ -10,9 +10,7 @@ interface Props {
 
 const Card = styled.div`
     width: 100%;
-    height: 100%;
     max-width: 270px;
-    max-height: 350px;
     padding: 0.5rem;
     border-radius: 8px;
     border: 1px solid #DDDDDD;
