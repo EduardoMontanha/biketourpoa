@@ -5,13 +5,13 @@ const Home = () => {
 
     const product: ProductDetails = {
         creationDate: "2022-06-20T12:01:04.753Z",
-        salePrice: 19,
-        // date: "2022-08-10T12:01:04.753Z",
-        fullPrice: 19,
+        salePrice: 170,
+        date: "2022-08-10T12:01:04.753Z",
+        fullPrice: 290,
         id: 1,
-        imageSrc: "https://static.wixstatic.com/media/a405a9_f50cc3728e244c5c8447c3c10c182700~mv2.png/v1/fill/w_309,h_309,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/card-home.png",
-        location: "Bento Gonçalves / RS",
-        quantity: 9,
+        imageSrc: "https://www.tudodeviagem.com/wp-content/uploads/2021/12/Gruta-do-Lago-Azul-Daniel-De-Granville-2.jpg",
+        location: "Bonito / MS",
+        quantity: 29,
         title: "Cascata da Borda Infinita",
     }
 
