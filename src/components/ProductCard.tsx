@@ -96,8 +96,6 @@ const ProductCard = ({ product }: Props) => {
                     <div className={`tag soldOut ${isSoldOut && hasDate ? "" : "hide"}`}>lista de espera</div>
                 </Tags>
 
-                
-
                 <Title>{title}</Title>
 
                 <Location>
