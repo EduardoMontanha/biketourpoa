@@ -29,6 +29,18 @@ const Image = styled.div`
     }
 `;
 
+const Location = styled.div`
+    display: flex;
+    align-items: center;
+    margin: 0.2rem 0;
+    color: #BBBBBB;
+
+    img {
+        height: 20px;
+        margin-right: 0.2rem;
+    }
+`;
+
 const Price = styled.div`
 
 `;
@@ -79,6 +91,7 @@ const ProductCard = ({ product }: Props) => {
     const [isNew, setIsNew] = useState(false);
     const [isOffer, setIsOffer] = useState(false);
     const [isSoldOut, setIsSoldOut] = useState(false);
+    const [location, setLocation] = useState("");
     const [price, setPrice] = useState("R$0,00");
     const [sale, setSale] = useState("");
     const [title, setTitle] = useState("Carregando...");
@@ -136,6 +149,7 @@ const ProductCard = ({ product }: Props) => {
         verifyTags();
 
         setTitle(product.title);
+        setLocation(product.location);
     }, []);
 
     return (
@@ -153,7 +167,10 @@ const ProductCard = ({ product }: Props) => {
                     <div className={`tag soldOut ${isSoldOut && hasDate ? "" : "hide"}`}>lista de espera</div>
                 </Tags>
 
-                <img src={locationIcon} alt="Ícone de local" />
+                <Location>
+                    <img src={locationIcon} alt="Ícone de local" />
+                    <p>{location}</p>
+                </Location>
 
                 <h3>{title}</h3>
                 

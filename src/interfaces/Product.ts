@@ -5,6 +5,7 @@ export interface ProductDetails {
     fullPrice: number,
     id: number,
     imageSrc?: string,
+    location: string,
     nextDates?: string[],
     quantity: number,
     salePrice?: number,
