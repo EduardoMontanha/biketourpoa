@@ -5,8 +5,8 @@ export const Card = styled.div`
     max-width: 270px;
     padding: 0.5rem;
     border-radius: 8px;
-    border: 1px solid #DDDDDD;
-    background-color: #FFFFFF;
+    background-color: var(--white);
+    box-shadow: 4px 4px 12px -4px var(--dark-grey);
 `;
 
 export const Image = styled.div`
@@ -23,9 +23,9 @@ export const Image = styled.div`
 export const Location = styled.div`
     display: flex;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     font-size: 0.8rem;
-    color: #BBBBBB;
+    color: var(--grey);
 
     img {
         height: 20px;
@@ -43,9 +43,10 @@ export const Price = styled.div`
     }
 
     .price.old {
+        margin-bottom: 0.3rem;
         font-size: 0.8rem;
         text-decoration: line-through;
-        color: var(--pink);
+        color: var(--grey);
     }
 `;
 
