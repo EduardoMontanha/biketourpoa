@@ -25,7 +25,6 @@ export const Location = styled.div`
     align-items: center;
     margin-bottom: 1.5rem;
     font-size: 0.8rem;
-    font-family: var(--content-font);
     color: #BBBBBB;
 
     img {
@@ -36,7 +35,6 @@ export const Location = styled.div`
 
 export const Price = styled.div`
     margin-bottom: 1rem;
-    font-family: var(--content-font);
 
     .price {
         font-size: 1.2rem;
@@ -57,7 +55,6 @@ export const Tags = styled.div`
     align-items: center;
     justify-content: flex-start;
     font-size: 0.8rem;
-    font-family: var(--content-font);
 
     &.no-tag {
         margin-bottom: 25.5px;
@@ -92,8 +89,6 @@ export const Tags = styled.div`
 
 export const Title = styled.h3`
     margin: 0.2rem 0 0.4rem;
-    font-family: serif;
-    font-family: var(--header-font);
     font-size: 2rem;
     color: var(--pink);
 `;

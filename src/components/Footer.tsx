@@ -1,10 +1,13 @@
+import { FooterArea } from "../styles/components/Footer";
 
 const Footer = () => {
 
     return (
-        <footer>
-            Footer
-        </footer>
+        <FooterArea>
+            <div className="container">
+                Footer
+            </div>
+        </FooterArea>
     );
 };
 

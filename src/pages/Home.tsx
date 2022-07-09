@@ -16,10 +16,11 @@ const Home = () => {
     }
 
     return (
-        <div>
-            Homepage
-            <ProductCard product={product} />
-        </div>
+        <main>
+            <div className="container">
+                <ProductCard product={product} />
+            </div>
+        </main>
     );
 }
   

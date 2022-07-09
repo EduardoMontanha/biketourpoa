@@ -1,10 +1,13 @@
+import { HeaderArea } from "../styles/components/Header";
 
 const Header = () => {
 
     return (
-        <header>
-            Header
-        </header>
+        <HeaderArea>
+            <div className="container">
+                header
+            </div>
+        </HeaderArea>
     );
 };
 
