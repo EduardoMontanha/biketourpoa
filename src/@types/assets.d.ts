@@ -19,3 +19,9 @@ declare module "\*.json" {
     const content: string;
     export default content;
 }
+
+// Fonts
+declare module "\*.ttf" {
+    const content: string;
+    export default content;
+}
