@@ -1,86 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-import Button from './Button';
+import { formatCurrency } from "../common/Helpers";
 import { ProductDetails } from "../interfaces/Product";
+import { Card, Image, Location, Price, Tags, Title } from '../styles/components/ProductCard';
+import Button from './Button';
 import locationIcon from '../assets/icons/location.svg';
 
 interface Props {
     product: ProductDetails
 }
-
-const Card = styled.div`
-    width: 100%;
-    max-width: 270px;
-    padding: 0.5rem;
-    border-radius: 8px;
-    border: 1px solid #DDDDDD;
-    background-color: #FFFFFF;
-`;
-
-const Image = styled.div`
-    text-align: center;
-
-    & img {
-        max-width: 100%;
-        max-height: 100%;
-        border-top-right-radius: 8px;
-        border-top-left-radius: 8px;
-    }
-`;
-
-const Location = styled.div`
-    display: flex;
-    align-items: center;
-    margin: 0.2rem 0;
-    color: #BBBBBB;
-
-    img {
-        height: 20px;
-        margin-right: 0.2rem;
-    }
-`;
-
-const Price = styled.div`
-
-`;
-
-const Tags = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-
-    &.no-tag {
-        margin-bottom: 25.5px;
-    }
-
-    .tag {
-        padding: 0.2rem 0.4rem;
-        border-radius 4px;
-        margin: 0.1rem;
-        display: inline-block;
-        color: #FFFFFF;
-        opacity: 0.8;
-        vertical-align: middle;
-    }
-
-    .comingSoon {
-        background-color: #FFCC00;
-    }
-    .lastUnits {
-        background-color: #FF9900;
-    }
-    .new {
-        background-color: #0066FF;
-    }
-    .offer {
-        background-color: #CC00CC;
-    }
-    .soldOut {
-        background-color: #CC0000;
-    }
-`;
 
 const ProductCard = ({ product }: Props) => {
     const [date, setDate] = useState("");
@@ -120,7 +48,7 @@ const ProductCard = ({ product }: Props) => {
 
         if (!!sale && (sale < product.fullPrice)) {
             setIsOffer(true);
-            setSale(`R$${sale}`);
+            setSale(formatCurrency(sale));
             containTags = true;
         }
 
@@ -148,8 +76,9 @@ const ProductCard = ({ product }: Props) => {
         verifyImage();
         verifyTags();
 
-        setTitle(product.title);
         setLocation(product.location);
+        setPrice(formatCurrency(product.fullPrice));
+        setTitle(product.title);
     }, []);
 
     return (
@@ -167,16 +96,23 @@ const ProductCard = ({ product }: Props) => {
                     <div className={`tag soldOut ${isSoldOut && hasDate ? "" : "hide"}`}>lista de espera</div>
                 </Tags>
 
+                
+
+                <Title>{title}</Title>
+
                 <Location>
                     <img src={locationIcon} alt="Ícone de local" />
                     <p>{location}</p>
                 </Location>
-
-                <h3>{title}</h3>
                 
-                <Price>
-                    <div className={`sale ${!!sale ? "" : "hide"}`}>{sale}</div>
-                    <div className="price">{price}</div>
+                <Price className={hasDate ? "" : "hide"}>
+                    <div className={!!sale ? "" : "hide"}>
+                        <div className="price old">De {price}</div>
+                        <div className="price">Por {sale}</div>
+                    </div>
+                    <div className={!!sale ? "hide" : ""}>
+                        <div className="price">{price}</div>
+                    </div>
                 </Price>
 
                 <Button primary full label="Saber Mais" />
