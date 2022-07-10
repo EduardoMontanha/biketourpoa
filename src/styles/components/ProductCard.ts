@@ -7,6 +7,16 @@ export const Card = styled.div`
     border-radius: 8px;
     background-color: var(--white);
     box-shadow: 4px 4px 12px -4px var(--dark-grey);
+
+    & > a {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    & .hide ~ button {
+        margin-top: auto;
+    }
 `;
 
 export const Image = styled.div`
@@ -34,6 +44,7 @@ export const Location = styled.div`
 `;
 
 export const Price = styled.div`
+    margin-top: auto;
     margin-bottom: 1rem;
 
     .price {
