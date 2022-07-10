@@ -5,12 +5,18 @@ import NotFound from './pages/NotFound';
 
 // Lazy load for other pages
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
+const Products = lazy(() => import("./pages/Products"));
 
 const Router = () => {
 
     return (
         <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/roteiros" element={
+                <Suspense fallback={<>Carregando...</>}>
+                    <Products />
+                </Suspense>
+            } />
             <Route path="/roteiro/:id" element={
                 <Suspense fallback={<>Carregando...</>}>
                     <ProductDetail />
