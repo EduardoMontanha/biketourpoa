@@ -47,7 +47,16 @@ const Products = () => {
                 <List>
                     <ProductCard product={product} />
                     <ProductCard product={product2} />
-                    <ProductCard product={product3} />  
+                    <ProductCard product={product3} />
+                    <ProductCard product={product} />
+                    <ProductCard product={product2} />
+                    <ProductCard product={product3} />
+                    <ProductCard product={product} />
+                    <ProductCard product={product2} />
+                    <ProductCard product={product3} />
+                    <ProductCard product={product} />
+                    <ProductCard product={product2} />
+                    <ProductCard product={product3} />
                 </List>
             </div>
         </main>
