@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { formatCurrency } from "../common/Helpers";
+import { formatCurrency, formatDateHour } from "../common/Helpers";
 import { ProductDetails } from "../interfaces/Product";
 import { Card, Image, Location, Price, Tags, Title } from '../styles/components/ProductCard';
 import Button from './Button';
@@ -13,7 +13,6 @@ interface Props {
 const ProductCard = ({ product }: Props) => {
     const [date, setDate] = useState("");
     const [hasDate, setHasDate] = useState(false);
-    const [hasTags, setHasTags] = useState(false);
     const [imageSrc, setImageSrc] = useState("");
     const [isLastUnits, setIsLastUnits] = useState(false);
     const [isNew, setIsNew] = useState(false);
@@ -37,27 +36,24 @@ const ProductCard = ({ product }: Props) => {
     }
 
     const verifyTags = () => {
-        let containTags = false;
+        const productDate = product.date;
         const sale = product.salePrice;
         const quantity = product.quantity;
 
-        if (!!product.date) {
-
+        if (!!productDate) {
+            setDate(formatDateHour("Date", productDate));
             setHasDate(true);
         }
 
-        if (!!sale && (sale < product.fullPrice)) {
+        if (!!sale && (sale < product.price)) {
             setIsOffer(true);
             setSale(formatCurrency(sale));
-            containTags = true;
         }
 
         if (quantity < 10 && quantity > 0) {
             setIsLastUnits(true);
-            containTags = true;
         } else if (quantity === 0) {
             setIsSoldOut(true);
-            containTags = true;
         }
 
         // Verify if the creation of the product has more than a month
@@ -66,10 +62,7 @@ const ProductCard = ({ product }: Props) => {
 
         if (diffInDays < 31) {
             setIsNew(true);
-            containTags = true;
         }
-
-        setHasTags(containTags);
     }
 
     useEffect(() => {
@@ -77,7 +70,7 @@ const ProductCard = ({ product }: Props) => {
         verifyTags();
 
         setLocation(product.location);
-        setPrice(formatCurrency(product.fullPrice));
+        setPrice(formatCurrency(product.price));
         setTitle(product.title);
     }, []);
 
@@ -86,9 +79,10 @@ const ProductCard = ({ product }: Props) => {
             <Link to={`/roteiro/${product.id}`}>
                 <Image>
                     <img src={imageSrc} alt={`Imagem do evento ${title}`} />
+                    <p className={`date ${hasDate ? "" : "hide"}`}>{date}</p>
                 </Image>
 
-                <Tags className={hasTags ? "" : "no-tag"}>
+                <Tags>
                     <div className={`tag new ${isNew ? "" : "hide"}`}>novo</div>
                     <div className={`tag comingSoon ${hasDate ? "hide" : ""}`}>em breve</div>
                     <div className={`tag offer ${isOffer && hasDate ? "" : "hide"}`}>promoção</div>
