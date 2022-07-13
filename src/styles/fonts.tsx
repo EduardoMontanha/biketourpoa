@@ -1,13 +1,12 @@
 import { css } from 'styled-components';
-
-import Yellowtail from '../assets/fonts/Yellowtail/Yellowtail-Regular.ttf';
+import Courgette from '../assets/fonts/Courgette/Courgette-Regular.ttf';
 import Montserrat from '../assets/fonts/Montserrat/Montserrat-Regular.ttf';
 import MontserratBold from '../assets/fonts/Montserrat/Montserrat-Bold.ttf';
 
 export const fontFaces = css`
     @font-face {
-        font-family: 'Yellowtail';
-        src: url(${Yellowtail}) format('truetype');
+        font-family: 'Courgette';
+        src: url(${Courgette}) format('truetype');
         font-style: normal;
     }
 

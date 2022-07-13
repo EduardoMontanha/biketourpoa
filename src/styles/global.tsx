@@ -13,7 +13,7 @@ export default createGlobalStyle`
         --pink: #EB1265;
         --yellow: #EFEF16;
         --white: #FFFFFF;
-        --header-font: Yellowtail;
+        --header-font: Courgette;
         --content-font: Montserrat;
         --content-font-bold: MontserratBold;
     }
