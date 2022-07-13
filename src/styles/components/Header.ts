@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HeaderArea = styled.header`
-    width: 100vw;
+    width: 100%;
     height: 5rem;
     padding: 1rem 0;
     position: fixed;

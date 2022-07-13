@@ -25,6 +25,7 @@ export default createGlobalStyle`
     }
 
     main {
+        width: 100%;
         padding: 2rem 0;
         margin-top: 5rem;
     }
