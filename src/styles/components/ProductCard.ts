@@ -100,7 +100,8 @@ export const Tags = styled.div`
 `;
 
 export const Title = styled.h3`
-    margin: 0.2rem 0 0.4rem;
-    font-size: 2rem;
+    margin: 0.2rem 0;
+    font-size: 1.8rem;
+    text-align: center;
     color: var(--pink);
 `;
