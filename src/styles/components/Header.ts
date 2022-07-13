@@ -7,6 +7,7 @@ export const HeaderArea = styled.header`
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1000;
     background-color: var(--yellow);
     box-shadow: 0 -8px 16px 4px #000000;
 `;
