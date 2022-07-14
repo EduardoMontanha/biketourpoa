@@ -13,8 +13,7 @@ export const ButtonStyle = styled.button<ButtonProps>`
     border-radius: 4px;
     background-color: ${props => props.primary ? "var(--pink)" : "var(--green)"};
     color: #FFFFFF;
-    font-weight: bold;
-    font-family: var(--content-font);
+    font-family: var(--content-font-bold);
     cursor: pointer;
 
     &:hover {
